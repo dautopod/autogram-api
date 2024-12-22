@@ -3,8 +3,10 @@ from bs4 import BeautifulSoup
 import openai
 import json
 import os
+from flask_cors import CORS  # Import CORS
 
 app = Flask(__name__)
+CORS(app, resources={r"/*": {"origins": "chrome-extension://oobgghfnikgdjofecgkadooeinfakdnk"}})  # Enable CORS for all routes
 
 # Set your OpenAI API key
 openai.api_key = os.getenv("OPENAI_API_KEY")
